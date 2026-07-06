@@ -7,17 +7,15 @@
         <a href="{{ route('invoices.pdf', $invoice) }}" class="btn btn-danger">
             <i class="fas fa-file-pdf me-1"></i> Download PDF
         </a>
-        @if($invoice->status !== 'paid')
-            <a href="{{ route('invoices.edit', $invoice) }}" class="btn btn-brand">Edit</a>
-            <form method="POST" action="{{ route('invoices.destroy', $invoice) }}" class="d-inline"
-                  onsubmit="return confirm('Delete this invoice permanently?')">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-            </form>
-            @if($invoice->balance_due > 0)
-                <a href="{{ route('payments.create', $invoice) }}" class="btn btn-brand">Record Payment</a>
-            @endif
+        <a href="{{ route('invoices.edit', $invoice) }}" class="btn btn-brand">Edit</a>
+        <form method="POST" action="{{ route('invoices.destroy', $invoice) }}" class="d-inline"
+              onsubmit="return confirm('Delete this invoice permanently?')">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+        </form>
+        @if($invoice->balance_due > 0)
+            <a href="{{ route('payments.create', $invoice) }}" class="btn btn-brand">Record Payment</a>
         @endif
         <a href="{{ route('invoices.index') }}" class="btn btn-outline-secondary">Back</a>
     </div>

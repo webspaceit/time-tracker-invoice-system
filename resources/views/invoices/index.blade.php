@@ -32,7 +32,6 @@
                         <td>
                             <a href="{{ route('invoices.pdf', $invoice) }}" class="btn btn-sm btn-danger" title="Download PDF"><i class="fas fa-file-pdf"></i></a>
                             <a href="{{ route('invoices.show', $invoice) }}" class="btn btn-sm btn-brand-outline">View</a>
-                            @if($invoice->status !== 'paid')
                             <a href="{{ route('invoices.edit', $invoice) }}" class="btn btn-sm btn-brand-outline">Edit</a>
                             <form method="POST" action="{{ route('invoices.destroy', $invoice) }}" class="d-inline"
                                   onsubmit="return confirm('Delete this invoice permanently?')">
@@ -40,7 +39,6 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">Delete</button>
                             </form>
-                            @endif
                         </td>
                     </tr>
                     @empty
