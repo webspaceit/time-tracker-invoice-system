@@ -48,7 +48,7 @@ if ($branch !== 'master') {
     die(json_encode(['status' => 'skipped', 'message' => "Push to '$branch' ignored (only master triggers deploy)"]));
 }
 
-$projectDir = __DIR__;
+$projectDir = dirname(__DIR__);
 $output = [];
 $returnVar = 0;
 
