@@ -50,10 +50,10 @@
                             </div>
                             <button type="submit" class="btn login-btn w-100">Sign in</button>
                         </form>
-                        <p class="text-center text-muted small mt-3 mb-0">
+                        {{-- <p class="text-center text-muted small mt-3 mb-0">
                             Don't have an account?
                             <a href="{{ route('register') }}" style="color:#1D560B;">Sign up</a>
-                        </p>
+                        </p> --}}
                     </div>
                 </div>
             </div>
