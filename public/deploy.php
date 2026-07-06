@@ -4,7 +4,7 @@
  * GitHub Webhook Auto-Deploy
  * 
  * Configure in GitHub: Settings > Webhooks > Add webhook
- * Payload URL: https://lists.wilderness-explorers.com/deploy.php
+ * Payload URL: https://ttinvoice.webspaceit.com/deploy.php
  * Content type: application/json
  * Secret: set WEBHOOK_SECRET below
  * Events: Just the push event
