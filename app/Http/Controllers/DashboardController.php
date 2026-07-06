@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+
 
 class DashboardController extends Controller
 {
@@ -93,7 +93,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $data = ['name' => $request->name, 'email' => $request->email];
         if ($request->filled('password')) {
-            $data['password'] = Hash::make($request->password);
+            $data['password'] = $request->password;
         }
         $user->update($data);
 
