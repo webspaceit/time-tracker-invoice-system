@@ -142,10 +142,6 @@ class InvoiceController extends Controller
 
     public function destroy(Invoice $invoice)
     {
-        if ($invoice->status === 'paid') {
-            return back()->with('error', 'Cannot delete a paid invoice.');
-        }
-
         $invoice->delete();
 
         return redirect()->route('invoices.index')
