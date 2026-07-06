@@ -10,7 +10,18 @@
  * Events: Just the push event
  */
 
-$secret = getenv('WEBHOOK_SECRET') ?: 'change-this-secret';
+// Read secret from .env file or environment
+$envFile = __DIR__ . '/../.env';
+$secret = getenv('WEBHOOK_SECRET');
+if (!$secret && file_exists($envFile)) {
+    $envContents = file_get_contents($envFile);
+    preg_match('/^WEBHOOK_SECRET=(.+)$/m', $envContents, $matches);
+    $secret = $matches[1] ?? null;
+}
+if (!$secret) {
+    http_response_code(500);
+    die(json_encode(['status' => 'error', 'message' => 'WEBHOOK_SECRET not configured']));
+}
 
 // Verify request method
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
